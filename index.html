@@ -45,13 +45,11 @@
     .project-button { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #8c20ff; color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s; }
     .project-button:hover { background: #a64dff; box-shadow: 0 0 10px #a64dff; }
 
-    button.copy-btn { margin-left: 10px; padding: 5px 10px; border: none; border-radius: 5px; background: #8c20ff; color: #fff; cursor: pointer; transition: 0.3s; }
-    button.copy-btn:hover { background: #a64dff; }
-
     blockquote { border-left: 4px solid #ff1744; padding-left: 15px; font-style: italic; color: #ccc; margin-bottom: 1.5rem; }
     blockquote span { font-weight: bold; color: #ff1744; }
 
     footer { text-align: center; padding: 1rem; background: #111; color: #f4f4f9; margin-top: 2rem; }
+
   </style>
 </head>
 <body>
@@ -86,8 +84,12 @@
 
   <div id="contact" class="tab-content">
     <h2>Contact</h2>
-    <p>Discord: <strong id="discord">mg_shadow_legend</strong>
-      <button class="copy-btn" onclick="copyDiscord()">Copy</button>
+    <p>
+      Discord: <strong id="discord">mg_shadow_legend</strong>
+      <button class="animated-button" onclick="copyDiscord()">
+        <span class="text">Copy</span>
+        <span class="circle"></span>
+      </button>
     </p>
   </div>
 
@@ -127,5 +129,3 @@
   </script>
 </body>
 </html>
-
-
