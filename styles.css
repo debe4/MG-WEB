@@ -1,4 +1,4 @@
-/* General styles */
+/* General styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -26,12 +26,7 @@ header {
 header h1 { margin: 0; font-size: 2.5rem; }
 header p { margin: 0.5rem 0 0; font-size: 1.2rem; }
 
-nav {
-  background: #111;
-  padding: 0.8rem;
-  text-align: center;
-}
-
+nav { background: #111; padding: 0.8rem; text-align: center; }
 nav button {
   background: none;
   border: none;
@@ -42,7 +37,6 @@ nav button {
   cursor: pointer;
   transition: 0.3s;
 }
-
 nav button:hover { text-decoration: underline; }
 nav button.active { color: #4dff9a; }
 
@@ -55,89 +49,89 @@ nav button.active { color: #4dff9a; }
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
-
 .tab-content.active { display: block; }
 .tab-content h2 { color: #8c20ff; }
 
-.project-button {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #8c20ff;
-  color: #fff;
-  text-decoration: none;
+blockquote {
+  border-left: 4px solid #ff1744;
+  padding-left: 15px;
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+blockquote span {
   font-weight: bold;
-  border-radius: 8px;
-  transition: 0.3s;
+  color: #ff1744;
 }
 
-.project-button:hover { background: #a64dff; box-shadow: 0 0 10px #a64dff; }
-
-blockquote { 
-  border: 2px solid rgb(255,0,0); 
-  padding-left: 15px; 
-  font-style: italic; 
-  color: #ccc; 
-  margin-bottom: 1.5rem; 
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  color: #f4f4f9;
+  margin-top: 2rem;
 }
 
-/* Footer */
-footer { 
-  text-align: center; 
-  padding: 1rem; 
-  background: #111; 
-  color: #f4f4f9; 
-  margin-top: 2rem; 
-}
-
-/* Animated Copy Button (stable, purple theme) */
+/* Animated button (shared) */
 .animated-button {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 6px 14px;
-  font-size: 12px;
-  background-color: inherit;
+  font-size: 14px;
+  background: transparent;
   border: 2px solid #a64dff;
   border-radius: 50px;
-  font-weight: 600;
   color: #a64dff;
   cursor: pointer;
-  overflow: hidden;
-  transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  background-color: #a64dff;
-  border-radius: 50%;
-  opacity: 0;
-  transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
-  z-index: 0;
+  overflow: visible;
+  transition: color 0.25s ease;
 }
 
 .animated-button .text {
   position: relative;
-  z-index: 1;
-  transform: none;
+  z-index: 3;
+}
+
+/* overlay that fills the button */
+.animated-button::before {
+  content: "";
+  position: absolute;
+  inset: -2px; /* covers border */
+  border-radius: inherit;
+  background: #a64dff;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .animated-button:hover {
-  color: #fff;
+  color: #000000;
 }
-
-.animated-button:hover .circle {
-  width: 300px;   /* Make it big enough to overflow button */
-  height: 300px;
-  opacity: 1;
+.animated-button:hover::before {
+  transform: scale(1);
 }
 
 .animated-button:active {
-  transform: scale(0.95);
+  scale: 0.96;
+}
+
+/* Smaller variant for copy button */
+.animated-button.small {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+/* Projects button (same purple, but allows future customization) */
+a.animated-button {
+  text-decoration: none;  /* remove underline */
+  display: inline-flex;   /* ensure flex behavior applies */
+  color: #a64dff;         /* match button text color */
+}
+
+a.animated-button:hover {
+  color: #000000;            /* text turns white on hover */
 }
